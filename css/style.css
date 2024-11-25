@@ -1319,9 +1319,20 @@ a {
 }
 
 .blog__cards-main {
+    min-height: 420px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+}
+.blog__cards-link{
+    display: none;
+    justify-content: end;
+}
+.blog__cards-link a{
+    display: inline-block;
+    padding: 10px;
+    font-size: 18px;
+    transition: all 0.2s ease;
 }
 
 @media (max-width: 900px) {
@@ -1330,7 +1341,15 @@ a {
         grid-template-columns: 1fr !important;
         gap: 20px;
     }
-
+    .blog__card:not(:first-child){
+        display: none;
+    }
+    .blog__cards-link{
+        display: flex;
+    }
+    .blog__cards-link:hover a{
+        color:#29292d76 ;
+    }
     .blog_title {
         font-size: 24px;
     }
@@ -1362,7 +1381,7 @@ a {
         margin: 0 auto;
     }
 
-    .blog__card:hover .blog__img-div {
+    .blog__card-black .blog__img-div {
         max-height: 439px;
         height: 100%;
     }
@@ -1385,21 +1404,21 @@ a {
         z-index: 2;
     }
 
-    .blog__card:hover .blog__card_overlay {
+    .blog__card-black .blog__card_overlay {
         opacity: 1;
     }
 
-    .blog__card:hover .blog__texts {
+    .blog__card-black .blog__texts {
         background-color: transparent;
         transform: translateY(-430px);
         color: white;
     }
 
-    .blog__card:hover .blog__texts .blog_heading-text,
-    .blog__card:hover .blog__texts .blog_heading-time,
-    .blog__card:hover .blog__texts .blog_card_title,
-    .blog__card:hover .blog__texts .blog_card_text,
-    .blog__card:hover .blog__texts .blog_card_button {
+    .blog__card-black .blog__texts .blog_heading-text,
+    .blog__card-black .blog__texts .blog_heading-time,
+    .blog__card-black .blog__texts .blog_card_title,
+    .blog__card-black .blog__texts .blog_card_text,
+    .blog__card-black .blog__texts .blog_card_button {
         color: white;
     }
 
@@ -1483,6 +1502,10 @@ a {
     line-height: 18.9px;
     letter-spacing: 0.05em;
     text-decoration: none;
+    transition: all 0.2s ease;
+}
+.blog_card_button:hover{
+    color: #26406574;
 }
 
 /* blog end  */
