@@ -30,7 +30,8 @@ a {
     margin: 0 auto;
     padding: 0 17.5px;
 }
-.container.best_offers-container{
+.container.best_offers-container,
+.container.seasonal__offers-container {
     max-width: 1379px;
 }
 @media(max-width:768px){
