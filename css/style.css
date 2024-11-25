@@ -1056,6 +1056,7 @@ a {
 
 .slider.swiper-wrapper {
     text-align: left;
+    gap:0 !important;
 }
 
 .swiper_product {
@@ -1188,12 +1189,14 @@ a {
     font-size: 12px;
     text-decoration: line-through;
 }
-
 .main_offer-slide-slider {
-    max-width: 250px;
+    /* max-width: 250px; */
     width: 100%;
 }
+.swiper_product-slide img{
+    width: 100%;
 
+}
 .main_offer-texts_addCard {
     background-color: transparent;
     border: none;

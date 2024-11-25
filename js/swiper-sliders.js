@@ -66,7 +66,7 @@ var swiper = new Swiper(".main_offer-slide", {
             centeredSlides: false,
         },
         320: {
-            slidesPerView: 'auto',
+            slidesPerView: 1.5,
             centeredSlides: true,
             loop: true,
         }
