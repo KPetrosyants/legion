@@ -29,6 +29,8 @@ function autoScrollSlider(swipers, selectorElement, sensitivity = 10, delay = 30
                     setTimeout(() => {
                         isMoving = false; // Сбрасываем флаг после задержки
                     }, delay); // Задержка в миллисекундах
+                    console.log(mouseStart);
+                console.log(mouseX);
                 } else if (mouseX > mouseStart+sensitivity) {
                     isMoving = true; // Устанавливаем флаг
 
@@ -37,6 +39,8 @@ function autoScrollSlider(swipers, selectorElement, sensitivity = 10, delay = 30
                     setTimeout(() => {
                         isMoving = false; // Сбрасываем флаг после задержки
                     }, delay); // Задержка в миллисекундах
+                    console.log(mouseStart);
+                console.log(mouseX);
                 }
 
                 mouseStart = mouseX

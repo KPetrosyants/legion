@@ -1190,7 +1190,7 @@ a {
     text-decoration: line-through;
 }
 .main_offer-slide-slider {
-    /* max-width: 250px; */
+    max-width: 250px;
     width: 100%;
 }
 .swiper_product-slide img{
