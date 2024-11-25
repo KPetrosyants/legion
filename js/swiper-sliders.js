@@ -64,7 +64,7 @@ var swiper = new Swiper(".main_offer-slide", {
         },
         768: {
             slidesPerView: 'auto',
-            centeredSlides: false,
+            centeredSlides: true,
         },
         450: {
             slidesPerView: 'auto',
@@ -72,7 +72,6 @@ var swiper = new Swiper(".main_offer-slide", {
             loop: true,
         },
         320: {
-            // slidesPerView: 1.5,
             slidesPerView: 'auto',
             centeredSlides: true,
             loop: true,
