@@ -95,6 +95,7 @@ a {
         opacity 0.3s ease-out;
     transform: translateY(20px);
     opacity: 0;
+    border-radius: 0 0 20px 20px;
 }
 
 .header__item-dropMenu .category_card-container {
