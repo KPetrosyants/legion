@@ -36,26 +36,58 @@ document.addEventListener("click", function (event) {
     }
 });
 
-const nav_faq = document.querySelector(".nav_faq");
-const navbar__faq_menu = document.querySelector(".navbar__faq-menu");
-const rotateButton = document.querySelector(".navbar__menu-catalog-rotate-btn");
+// const nav_faq = document.querySelector(".nav_faq");
+// const navbar__faq_menu = document.querySelector(".navbar__faq-menu");
+// const rotateButton = document.querySelector(".navbar__menu-catalog-rotate-btn");
 
-nav_faq.addEventListener("click", function (event) {
-    event.stopPropagation();
-    navbar__faq_menu.classList.toggle("active");
+// nav_faq.addEventListener("click", function (event) {
+//     event.stopPropagation();
+//     navbar__faq_menu.classList.toggle("active");
 
-    rotateButton.classList.toggle("rotate-180");
+//     rotateButton.classList.toggle("rotate-180");
+// });
+
+// document.addEventListener("click", function (event) {
+//     if (
+//         !navbar__faq_menu.contains(event.target) &&
+//         !nav_faq.contains(event.target)
+//     ) {
+//         navbar__faq_menu.classList.remove("active");
+
+//         rotateButton.classList.remove("rotate-180");
+//     }
+// });
+const navbarLinks = document.querySelectorAll(".navbar__menu-link");
+
+navbarLinks.forEach((navLink) => {
+    navLink.addEventListener("click", function (event) {
+        event.stopPropagation();
+
+        // Найти вложенный список, который соответствует текущей кнопке
+        const submenu = this.nextElementSibling; // Получаем следующий элемент (вложенный список)
+        if (submenu && submenu.classList.contains("navbar__faq-menu")) {
+            submenu.classList.toggle("active"); // Переключаем активность вложенного списка
+            const rotateButton = this.querySelector(
+                ".navbar__menu-catalog-rotate-btn"
+            );
+            rotateButton.classList.toggle("rotate-180"); // Поворачиваем иконку
+        }
+    });
 });
 
 document.addEventListener("click", function (event) {
-    if (
-        !navbar__faq_menu.contains(event.target) &&
-        !nav_faq.contains(event.target)
-    ) {
-        navbar__faq_menu.classList.remove("active");
-
-        rotateButton.classList.remove("rotate-180");
-    }
+    navbarLinks.forEach((navLink) => {
+        const submenu = navLink.nextElementSibling; // Получаем соответствующий вложенный список
+        if (submenu) {
+            submenu.classList.remove("active"); // Убираем активность у всех вложенных списков
+            const rotateButton = navLink.querySelector(
+                ".navbar__menu-catalog-rotate-btn"
+            );
+            if (rotateButton) {
+                rotateButton.classList.remove("rotate-180"); // Сбрасываем поворот иконок
+            }
+        }
+    });
 });
 
 const buttonContainers = document.querySelectorAll(
