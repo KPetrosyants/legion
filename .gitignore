@@ -1,0 +1,4 @@
+# игнор sass
+scss/
+node_modules/
+*.json
