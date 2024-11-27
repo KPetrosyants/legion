@@ -117,4 +117,43 @@ document.addEventListener("DOMContentLoaded", function () {
             disableOnInteraction: false,
         },
     });
+
+    var swiper = new Swiper(".category-slider", {
+        pagination: {
+            el: ".category-slider__pagination",
+            clickable: true,
+        },
+        slidesPerView: "auto",
+        centeredSlides: false,
+        loop: true,
+        spaceBetween: 30,
+        breakpoints: {
+            1150: {
+                slidesPerView: 5,
+            },
+            950: {
+                slidesPerView: 4,
+            },
+            750: {
+                slidesPerView: 3,
+            },
+            550: {
+                slidesPerView: 2,
+            },
+            320: {
+                slidesPerView: 1.5,
+                centeredSlides: true,
+            },
+        },
+    });
+    var swiper = new Swiper(".hero-catalog__banner-slider", {
+        navigation: {
+            nextEl: ".hero-catalog__banner-button-next",
+            prevEl: ".hero-catalog__banner-button-prev",
+        },
+        slidesPerView: 1,
+        centeredSlides: false,
+        loop: true,
+        speed: 600,
+    });
 });
