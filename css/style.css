@@ -61,6 +61,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 
 .header__logo {
@@ -82,24 +83,28 @@ a {
 
 .header__item-dropMenu {
     position: absolute;
-    background-color: white;
-    list-style: none;
-    max-width: 140px;
-    border-top: 1px solid #264065;
+    left: 0;
+    top: 45px;
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
         0 4px 6px -4px rgb(0 0 0 / 0.1);
     width: 100%;
-    margin-top: 10px;
     z-index: 2;
     max-height: 0;
-    overflow: hidden;
-    transition: all 0.3s ease-out;
+    overflow-x: hidden;
+    transition: max-height 0.3s ease-out, transform 0.3s ease-out,
+        opacity 0.3s ease-out;
     transform: translateY(20px);
     opacity: 0;
 }
 
+.header__item-dropMenu .category_card-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #f9f9f9;
+}
+
 .header__item-dropMenu.open {
-    max-height: 500px;
+    max-height: 530px;
     opacity: 1;
     transform: translateY(0);
 }
@@ -113,19 +118,19 @@ a {
     transform: rotate(180deg);
 }
 
-.header__item-dropMenu li {
+/* .header__item-dropMenu li {
     padding: 15px 20px;
-}
+} */
 
-.header__item-dropMenu li:hover {
+/* .header__item-dropMenu li:hover {
     background-color: rgba(0, 0, 0, 0.062);
 }
 
 .header__item-dropMenu li:hover a {
     color: #264065;
-}
+} */
 
-.header__item-dropMenu li a,
+/* .header__item-dropMenu li a,
 .header__link {
     font-size: 14px;
     font-weight: 400;
@@ -134,7 +139,7 @@ a {
     font-family: "IBM Plex Sans", sans-serif;
     text-decoration: none;
     color: #333333;
-}
+} */
 
 .header__link.drop_menu {
     background-color: transparent;
