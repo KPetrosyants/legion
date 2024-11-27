@@ -1229,6 +1229,7 @@ a {
 }
 
 .best_offers-pagination.swiper-pagination {
+    display: none;
     margin-top: 60px;
 }
 
@@ -1241,6 +1242,9 @@ a {
 
     .best_offers_btn {
         display: none;
+    }
+    .best_offers-pagination.swiper-pagination {
+        display: flex;
     }
 }
 

@@ -1,16 +1,16 @@
 function sliderDecoratorUpdateSlidesSize(func) {
-    return function() {
-      func.apply(this, arguments);
-  
-      var min = 0;
-      var max = slider.virtualSize - slider.width;
-      _.each(slider.snapGrid, function(val, i, list) {
-        if (val < min) list[i] = min;
-        else if (val > max) list[i] = max;
-        else list[i] = Math.round(val);
-      });
+    return function () {
+        func.apply(this, arguments);
+
+        var min = 0;
+        var max = slider.virtualSize - slider.width;
+        _.each(slider.snapGrid, function (val, i, list) {
+            if (val < min) list[i] = min;
+            else if (val > max) list[i] = max;
+            else list[i] = Math.round(val);
+        });
     };
-  }
+}
 
 var swiper = new Swiper(".main-slider__wrapper", {
     pagination: {
@@ -30,8 +30,8 @@ var swiper = new Swiper(".main-slider__wrapper", {
         320: {
             slidesPerView: 1,
             spaceBetween: 20,
-        }
-    }
+        },
+    },
 });
 
 const swiperProduct = new Swiper(".swiper_product", {
@@ -41,15 +41,13 @@ const swiperProduct = new Swiper(".swiper_product", {
     slidesPerView: 1,
     effect: "fade",
     fadeEffect: {
-        crossFade: true, 
+        crossFade: true,
     },
     allowTouchMove: true,
     touchRatio: 0.5,
-    threshold: 10, 
+    threshold: 10,
 });
-autoScrollSlider(swiperProduct,'.swiper_product')
-
-
+autoScrollSlider(swiperProduct, ".swiper_product");
 
 var swiper = new Swiper(".main_offer-slide", {
     pagination: {
@@ -59,29 +57,36 @@ var swiper = new Swiper(".main_offer-slide", {
     spaceBetween: 24,
     breakpoints: {
         1024: {
-            slidesPerView: 'auto',
+            slidesPerView: "auto",
             centeredSlides: false,
         },
         768: {
-            slidesPerView: 'auto',
+            slidesPerView: "auto",
             centeredSlides: true,
         },
         450: {
-            slidesPerView: 'auto',
+            slidesPerView: "auto",
             centeredSlides: true,
             loop: true,
         },
         320: {
-            slidesPerView: 'auto',
+            slidesPerView: "auto",
             centeredSlides: true,
             loop: true,
-        }
-    }
+        },
+    },
 });
 
 var swiper = new Swiper(".logos_swiper", {
-    slidesPerView: 7,
     slidesPerView: "auto",
+    spaceBetween: 24,
+    centeredSlides: true,
+    loop: true,
+    breakpoints: {
+        768: {
+            centeredSlides: false,
+        },
+    },
 });
 var swiper = new Swiper(".mini_blog-container", {
     slidesPerView: 1.3,
@@ -98,15 +103,15 @@ var swiper = new Swiper(".mini_blog-container", {
         320: {
             slidesPerView: 1,
             centeredSlides: true,
-        }
-    }
+        },
+    },
 });
 var swiper = new Swiper(".hero", {
     slidesPerView: 1,
     loop: true,
-    speed:700,
+    speed: 700,
     autoplay: {
-      delay: 1500,
-      disableOnInteraction: false,
+        delay: 1500,
+        disableOnInteraction: false,
     },
 });
