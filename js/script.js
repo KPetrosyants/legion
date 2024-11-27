@@ -70,7 +70,7 @@ navbarLinks.forEach((navLink) => {
             const rotateButton = this.querySelector(
                 ".navbar__menu-catalog-rotate-btn"
             );
-            rotateButton.classList.toggle("rotate-180"); // Поворачиваем иконку
+            // rotateButton.classList.toggle("rotate-180"); // Поворачиваем иконку
         }
     });
 });

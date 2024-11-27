@@ -261,7 +261,7 @@ a {
 .header .menu-icon {
     cursor: pointer;
     display: inline-block;
-    float: right;
+    /* float: right; */
     position: relative;
     user-select: none;
 }
@@ -368,6 +368,9 @@ a {
     cursor: pointer;
     gap: 0 20px;
 }
+.navbar__menu-item .navbar__faq-menu.active .navbar__menu-link.nav_faq {
+    margin-bottom: 10px;
+}
 
 .navbar__faq-menu {
     list-style: none;
@@ -393,6 +396,9 @@ a {
 .navbar__faq-menu li {
     /* padding: 10px 20px; */
     padding: 10px 0;
+}
+.navbar__faq-menu > li .navbar__faq-menu > li {
+    padding: 0;
 }
 .navbar__faq-menu li svg {
     max-width: 30px;
@@ -441,8 +447,7 @@ a {
 .hero {
     overflow: hidden;
 }
-.hero__slider {
-}
+
 .hero__slide {
     max-width: 1344px;
     display: flex;
