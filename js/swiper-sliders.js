@@ -55,6 +55,7 @@ var swiper = new Swiper(".main_offer-slide", {
     },
     slidesPerView: "auto",
     spaceBetween: 24,
+    loop: true,
     breakpoints: {
         1024: {
             slidesPerView: "auto",
