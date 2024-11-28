@@ -2003,13 +2003,16 @@
                             </svg> </span
                         >Фильтр
                     </h5>
-                    <div class="filter__item">
+                    <div class="filter__item filter__item-serche">
                         <input type="text" placeholder="Найти" />
+                        <img src="/img/icon/loop.svg" alt="" />
                     </div>
-                    <div class="filter__item">
+                    <div class="filter__item filter__item-range">
                         <p>Цена</p>
                         <div class="filter__range">
-                            <div id="slider"></div>
+                            <div class="filter__range-container">
+                                <div id="slider"></div>
+                            </div>
                             <div class="value">
                                 <input type="number" id="min-price" value="0" />
                                 <input

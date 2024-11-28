@@ -3,11 +3,11 @@ const minInput = document.getElementById("min-price");
 const maxInput = document.getElementById("max-price");
 
 noUiSlider.create(slider, {
-    start: [0, 1000],
+    start: [0, 99999],
     connect: true,
     range: {
         min: 0,
-        max: 1000,
+        max: 99999,
     },
     step: 1,
 });
