@@ -536,4 +536,91 @@ h6 {
   }
 }
 
+.filter-section {
+  display: grid;
+  grid-template-columns: 320px auto;
+  gap: 25px;
+}
+.filter-section__filter {
+  width: 100%;
+}
+.view__header {
+  grid-template-rows: auto auto;
+  gap: 15px;
+  font-family: "IBM Plex Sans", serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  margin-bottom: 15px;
+  color: var(--text-color);
+}
+.view__header-options {
+  display: flex;
+  justify-content: space-between;
+}
+.view__header-view-options {
+  display: flex;
+  gap: 20px;
+}
+.view__header-view-options button {
+  background-color: var(--color-white);
+}
+.view__header-view-options button.active {
+  background-color: #e9e9e9;
+}
+.view__header-view-options button.active path {
+  fill: #307fdd;
+}
+.view__header-options-filters {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-right: 20px;
+}
+.view__header-options-filters select {
+  background: transparent;
+  color: var(--title-color);
+}
+.view__header-slugs {
+  display: flex;
+}
+.view__header-slugs > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px 6px 10px;
+  height: 32px;
+  margin-right: 10px;
+  background-color: var(--color-white);
+  border-radius: 37px;
+  font-size: 12px;
+  line-height: 13px;
+}
+.view__header-slugs > span .cross-mark {
+  width: 20px;
+  height: 20px;
+  background: url("/img/icon/cross-mark.svg") no-repeat center;
+}
+.view__header-view-options button {
+  width: 32px;
+  height: 32px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.view__body.active .view__body-item {
+  max-width: 180px;
+}
+
+.view__body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.view__body.active {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
 /*# sourceMappingURL=catalog-style.css.map */
