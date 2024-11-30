@@ -247,6 +247,7 @@ h6 {
 .category-slider__slide {
   height: 75px;
 }
+
 .category-slide__content {
   position: relative;
   border-radius: 37px;
@@ -541,12 +542,50 @@ h6 {
   grid-template-columns: 320px auto;
   gap: 25px;
 }
+@media (max-width: 930px) {
+  .filter-section {
+    position: relative;
+    display: block;
+  }
+}
 .filter-section__filter {
   width: 100%;
   background-color: var(--color-white);
   border-radius: 15px;
   padding: 15px;
 }
+@media (max-width: 930px) {
+  .filter-section__filter {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    max-width: 320px;
+    z-index: 10;
+    top: 50px;
+  }
+}
+.filter-section.show-filter .filter-section__filter.filter {
+  opacity: 1;
+  visibility: visible;
+}
+.filter-section__filter.active {
+  opacity: 1;
+  visibility: visible;
+}
+.filter-section .view .view__header-options-filter-show {
+  width: 110px;
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 15px;
+  font-size: 14px;
+  line-height: 19px;
+  transition: opacity var(--transition);
+  opacity: 1;
+}
+.filter-section .view .view__header-options-filter-show:hover {
+  opacity: 0.8;
+}
+
 .view__header {
   grid-template-rows: auto auto;
   gap: 15px;
@@ -561,9 +600,19 @@ h6 {
   display: flex;
   justify-content: space-between;
 }
+@media (max-width: 930px) {
+  .view__header-options {
+    margin-bottom: 10px;
+  }
+}
 .view__header-view-options {
   display: flex;
   gap: 20px;
+}
+@media (max-width: 930px) {
+  .view__header-view-options {
+    display: none;
+  }
 }
 .view__header-view-options button {
   background-color: var(--color-white);
@@ -584,10 +633,18 @@ h6 {
   background: transparent;
   color: var(--title-color);
 }
+@media (max-width: 550px) {
+  .view__header-options-filters {
+    flex-direction: column;
+    align-items: start;
+    gap: 2px;
+  }
+}
 .view__header-slugs {
   display: flex;
 }
-.view__header-slugs > span {
+.view__header-slugs > span,
+.view .view__header-options-filter-show {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -599,7 +656,8 @@ h6 {
   font-size: 12px;
   line-height: 13px;
 }
-.view__header-slugs > span .cross-mark {
+.view__header-slugs > span .cross-mark,
+.view .view__header-options-filter-show .cross-mark {
   width: 20px;
   height: 20px;
   background: url("/img/icon/cross-mark.svg") no-repeat center;
@@ -615,21 +673,48 @@ h6 {
 .view__body.active .view__body-item {
   max-width: 180px;
 }
+@media (max-width: 550px) {
+  .view .main_offer-slide-slider {
+    max-width: 43vw;
+  }
+}
 
 .view__body {
   display: grid;
+  gap: 20px;
   grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 1100px) {
+  .view__body {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.view__body-item {
+  display: flex;
+  justify-content: center;
 }
 
 .view__body.active {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 }
+@media (max-width: 1280px) {
+  .view__body.active {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 1100px) {
+  .view__body.active {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
 .filter {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
+  max-height: 950px;
   font-family: "IBM Plex Sans", serif;
 }
 .filter__title {
@@ -646,6 +731,12 @@ h6 {
   border: 1px solid #e6e6e6;
   border-radius: 5px;
 }
+.filter__item:not(.filter__item-serche) {
+  padding: 15px;
+}
+.filter__item.filter__item-details {
+  padding: 0;
+}
 .filter__item input {
   background-color: #f9f9f9;
   width: 100%;
@@ -657,8 +748,10 @@ h6 {
 .filter__item-serche {
   height: 44px;
   position: relative;
+  overflow: hidden;
 }
 .filter__item-serche input {
+  height: 100%;
   padding: 12px 0 12px 50px;
 }
 .filter__item-serche input:focus {
@@ -685,7 +778,7 @@ h6 {
   font-size: 18px;
   line-height: 24px;
   color: #252b42;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 .filter__range {
   flex: 1;
@@ -767,6 +860,196 @@ h6 {
   border-radius: 50%;
   background-color: #307fdd;
   transform: translateY(-3px);
+  position: relative;
+}
+.filter #slider .noUi-touch-area::before {
+  content: "";
+  position: absolute;
+  top: -11px;
+  right: 0px;
+  height: 7px;
+  width: 14px;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #264065;
+}
+.filter #availability {
+  width: 100%;
+}
+.filter #offers {
+  border-radius: 5px;
+  width: 100%;
+  padding: 12px 10px;
+  background-color: #f9f9f9;
+  border: 1px solid rgb(230, 230, 230);
+  color: rgb(115, 115, 115);
+  font-size: 14px;
+  line-height: 18px;
+  -webkit-appearance: none; /* Safari и Chrome */
+  -moz-appearance: none; /* Firefox */
+  appearance: none;
+}
+.filter__item details summary {
+  padding: 15px;
+}
+.filter .filter__item-offers {
+  position: relative;
+}
+.filter .filter__item-offers::after {
+  content: "";
+  position: absolute;
+  top: 13px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  background: url("/img/icon/arrow-down-filter.svg") no-repeat center;
+}
+.filter__item p {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.filter__item-content-label {
+  height: 25px;
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  line-height: 25px;
+  color: var(--text-color);
+}
+.filter .filter__item.filter__item-details {
+  position: relative;
+}
+.filter .filter__item.filter__item-details details[open] {
+  padding: 15px;
+}
+.filter .filter__item.filter__item-details details[open] summary {
+  padding: 0;
+  margin-bottom: 10px;
+}
+.filter .filter__item.filter__item-details:has(details)::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: url("/img/icon/arrow-down-filter.svg") no-repeat center;
+}
+.filter .filter__item.filter__item-details:has(details[open])::after {
+  transform: rotate(180deg);
+}
+.filter__item-content-label input {
+  width: 25px;
+  height: 20px;
+}
+.filter__item-content-text {
+  flex: 1;
+  text-align: left;
+}
+.noUi-horizontal .noUi-tooltip {
+  max-height: 22px;
+  padding: 0 4px;
+  background-color: #264065;
+  color: var(--color-white);
+  font-size: 16px;
+  line-height: 22px;
+  transform: translate(-50%, -10px) !important;
+  border: none;
+}
+
+/* Сброс стилей для элемента details */
+details {
+  margin: 0; /* Убираем отступы */
+  padding: 0; /* Убираем внутренние отступы */
+  border: none; /* Убираем рамку */
+  background: none; /* Убираем фон */
+  outline: none; /* Убираем обводку */
+  /* Можно добавить дополнительные свойства, если нужно */
+}
+
+/* Сброс стилей для элемента summary */
+summary {
+  list-style: none; /* Убираем маркеры списка */
+  padding: 0; /* Убираем внутренние отступы */
+  margin: 0; /* Убираем внешние отступы */
+  cursor: pointer; /* Добавляем указатель для кликабельности */
+  /* Дополнительно можно добавить свойства, чтобы изменить внешний вид */
+}
+
+/* Чтобы интерпретировать элементы Details как блочные с подходящими отступами */
+summary::-webkit-details-marker {
+  display: none; /* Убираем стандартный треугольник для WebKit-браузеров */
+}
+
+/* Скрываем стандартный чекбокс */
+.custom-checkbox {
+  opacity: 0; /* Скрываем стандартный чекбокс */
+  overflow: hidden;
+  position: absolute;
+  z-index: 10;
+}
+
+/* Стилизуем элемент, который будет выглядеть как чекбокс */
+.custom-checkbox + span {
+  display: inline-block;
+  width: 25px; /* Ширина "чекбокса" */
+  height: 25px; /* Высота "чекбокса" */
+  border: 2px solid #ccc; /* Цвет границы по умолчанию */
+  border-radius: 4px; /* Закругленный угол */
+  margin-right: 10px; /* Отступ справа */
+  cursor: pointer; /* Курсор при наведении */
+  position: relative; /* Для более удобной стилизации при клике */
+}
+
+/* Стиль для активного состояния (когда чекбокс выбран) */
+.custom-checkbox:checked + span {
+  background-color: #007bff; /* Фон при выборе */
+  border-color: #007bff; /* Цвет рамки при выборе */
+}
+
+/* Стиль галочки */
+.custom-checkbox:checked + span::after {
+  content: ""; /* Псевдоэлемент для создания галочки */
+  position: absolute;
+  width: 25px; /* Ширина галочки */
+  height: 25px; /* Высота галочки */
+  background: url("/img/icon/ok.svg") no-repeat center;
+  left: -2px;
+  top: -2px;
+}
+
+.filter__item-details--type {
+  /* Стилизуем элемент, который будет выглядеть как чекбокс */
+  /* Стиль для активного состояния (когда чекбокс выбран) */
+  /* Стиль галочки */
+}
+.filter__item-details--type:has(details[open]) {
+  padding-bottom: 10px;
+}
+.filter__item-details--type details {
+  max-height: 300px;
+  overflow-x: hidden;
+}
+.filter__item-details--type .custom-checkbox + span {
+  display: inline-block;
+  border-radius: 50%;
+  width: 25px; /* Ширина "чекбокса" */
+  height: 25px; /* Высота "чекбокса" */
+  border: 2px solid #ccc; /* Цвет границы по умолчанию */
+  margin-right: 10px; /* Отступ справа */
+  cursor: pointer; /* Курсор при наведении */
+  position: relative; /* Для более удобной стилизации при клике */
+}
+.filter__item-details--type .custom-checkbox:checked + span {
+  border: 5px solid #007bff; /* Цвет рамки при выборе */
+  background-color: transparent;
+}
+.filter__item-details--type .custom-checkbox:checked + span::after {
+  display: none;
 }
 
 /*# sourceMappingURL=catalog-style.css.map */

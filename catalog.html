@@ -2024,62 +2024,91 @@
                         </div>
                     </div>
                     <div class="filter__item">
-                        <p>Цена</p>
-                        <select name="offers" id="offers">
-                            <option
-                                class="view__header-options-filter"
-                                value="Все"
-                            >
-                                Все
-                            </option>
-                            <option
-                                class="view__header-options-filter"
-                                value="Другие"
-                            >
-                                Другие
-                            </option>
-                        </select>
+                        <p>Наши предложения</p>
+                        <div class="filter__item-offers">
+                            <select name="offers" id="offers">
+                                <option
+                                    class="view__header-options-filter"
+                                    value="Все"
+                                >
+                                    Все
+                                </option>
+                                <option
+                                    class="view__header-options-filter"
+                                    value="Другие"
+                                >
+                                    Другие
+                                </option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="filter__item">
-                        <details>
+                    <div class="filter__item filter__item-details">
+                        <details open>
                             <summary>Ассортимент</summary>
                             <div class="filter__item-content">
                                 <label
-                                    name="ГК Сириус"
+                                    name="ГКСириус"
                                     class="filter__item-content-label"
                                 >
-                                    <input type="checkbox" name="ГК Сириус" />
-                                    ГК Сириус
+                                    <input
+                                        class="custom-checkbox"
+                                        type="checkbox"
+                                        name="ГКСириус"
+                                    /><span class="checkbox"></span>
+
+                                    <span class="filter__item-content-text"
+                                        >ГК Сириус</span
+                                    >
                                     <span class="filter__item-content-count"
                                         >11</span
                                     >
                                 </label>
                                 <label
-                                    name="ГК Сириус"
+                                    name="ГКСпецобъединение"
                                     class="filter__item-content-label"
                                 >
-                                    <input type="checkbox" name="ГК Сириус" />
-                                    ГК Спецобъединение
+                                    <input
+                                        class="custom-checkbox"
+                                        type="checkbox"
+                                        name="ГКСпецобъединение"
+                                    /><span class="checkbox"></span>
+
+                                    <span class="filter__item-content-text"
+                                        >ГК Спецобъединение</span
+                                    >
                                     <span class="filter__item-content-count"
                                         >23</span
                                     >
                                 </label>
                                 <label
-                                    name="ГК Сириус"
+                                    name="Факел-спецодежда"
                                     class="filter__item-content-label"
                                 >
-                                    <input type="checkbox" name="ГК Сириус" />
-                                    Факел-спецодежда
+                                    <input
+                                        class="custom-checkbox"
+                                        type="checkbox"
+                                        name="Факел-спецодежда"
+                                    /><span class="checkbox"></span>
+
+                                    <span class="filter__item-content-text"
+                                        >Факел-спецодежда</span
+                                    >
                                     <span class="filter__item-content-count"
                                         >26</span
                                     >
                                 </label>
                                 <label
-                                    name="ГК Сириус"
+                                    name="Экспертспецодежда"
                                     class="filter__item-content-label"
                                 >
-                                    <input type="checkbox" name="ГК Сириус" />
-                                    Эксперт спецодежда
+                                    <input
+                                        class="custom-checkbox"
+                                        type="checkbox"
+                                        name="Экспертспецодежда"
+                                    /><span class="checkbox"></span>
+                                    <span class="filter__item-content-text"
+                                        >Эксперт спецодежда</span
+                                    >
                                     <span class="filter__item-content-count"
                                         >12</span
                                     >
@@ -2088,7 +2117,7 @@
                         </details>
                     </div>
                     <div class="filter__item">
-                        <select name="offers" id="offers">
+                        <select name="availability" id="availability">
                             <option
                                 class="view__header-options-filter"
                                 value="В наличии"
@@ -2115,48 +2144,175 @@
                             </option>
                         </select>
                     </div>
-                    <div class="filter__item">
-                        <details class="type">
-                            <summary>Ассортимент</summary>
+                    <div
+                        class="filter__item filter__item-details filter__item-details--type"
+                    >
+                        <details open>
+                            <summary>Тип</summary>
                             <div class="filter__item-content">
+                                <label
+                                    name="Все"
+                                    class="filter__item-content-label"
+                                >
+                                    <input
+                                        class="custom-checkbox"
+                                        type="checkbox"
+                                        name="Все"
+                                        id="all-type"
+                                        checked
+                                    /><span class="checkbox"></span>
+
+                                    <span class="filter__item-content-text"
+                                        >Все</span
+                                    >
+                                    <span class="filter__item-content-count"
+                                        >11</span
+                                    >
+                                </label>
                                 <label
                                     name="Бандана"
                                     class="filter__item-content-label"
                                 >
-                                    <input type="checkbox" name="Бандана" />
-                                    Бандана
+                                    <input
+                                        class="custom-checkbox"
+                                        type="checkbox"
+                                        name="Бандана"
+                                    /><span class="checkbox"></span>
+
+                                    <span class="filter__item-content-text"
+                                        >Бандана</span
+                                    >
                                     <span class="filter__item-content-count"
                                         >23</span
+                                    >
+                                </label>
+                                <label
+                                    name="Бахилы"
+                                    class="filter__item-content-label"
+                                >
+                                    <input
+                                        class="custom-checkbox"
+                                        type="checkbox"
+                                        name="Бахилы"
+                                    /><span class="checkbox"></span>
+
+                                    <span class="filter__item-content-text"
+                                        >Бахилы</span
+                                    >
+                                    <span class="filter__item-content-count"
+                                        >26</span
                                     >
                                 </label>
                                 <label
                                     name="Белье"
                                     class="filter__item-content-label"
                                 >
-                                    <input type="checkbox" name="Белье" />
-                                    Белье
-                                    <span class="filter__item-content-count"
-                                        >11</span
+                                    <input
+                                        class="custom-checkbox"
+                                        type="checkbox"
+                                        name="Белье"
+                                    /><span class="checkbox"></span>
+                                    <span class="filter__item-content-text"
+                                        >Белье</span
                                     >
-                                </label>
-                                <label
-                                    name="Галстук"
-                                    class="filter__item-content-label"
-                                >
-                                    <input type="checkbox" name="Галстук" />
-                                    Галстук
                                     <span class="filter__item-content-count"
-                                        >123</span
+                                        >12</span
                                     >
                                 </label>
                                 <label
                                     name="Блуза"
                                     class="filter__item-content-label"
                                 >
-                                    <input type="checkbox" name="Блуза" />
-                                    Блуза
+                                    <input
+                                        class="custom-checkbox"
+                                        type="checkbox"
+                                        name="Блуза"
+                                    /><span class="checkbox"></span>
+                                    <span class="filter__item-content-text"
+                                        >Блуза</span
+                                    >
                                     <span class="filter__item-content-count"
-                                        >11</span
+                                        >12</span
+                                    >
+                                </label>
+                                <label
+                                    name="Брюки"
+                                    class="filter__item-content-label"
+                                >
+                                    <input
+                                        class="custom-checkbox"
+                                        type="checkbox"
+                                        name="Брюки"
+                                    /><span class="checkbox"></span>
+                                    <span class="filter__item-content-text"
+                                        >Брюки</span
+                                    >
+                                    <span class="filter__item-content-count"
+                                        >12</span
+                                    >
+                                </label>
+                                <label
+                                    name="Галстук"
+                                    class="filter__item-content-label"
+                                >
+                                    <input
+                                        class="custom-checkbox"
+                                        type="checkbox"
+                                        name="Галстук"
+                                    /><span class="checkbox"></span>
+                                    <span class="filter__item-content-text"
+                                        >Галстук</span
+                                    >
+                                    <span class="filter__item-content-count"
+                                        >12</span
+                                    >
+                                </label>
+                                <label
+                                    name="Галстук"
+                                    class="filter__item-content-label"
+                                >
+                                    <input
+                                        class="custom-checkbox"
+                                        type="checkbox"
+                                        name="Галстук"
+                                    /><span class="checkbox"></span>
+                                    <span class="filter__item-content-text"
+                                        >Галстук</span
+                                    >
+                                    <span class="filter__item-content-count"
+                                        >12</span
+                                    >
+                                </label>
+                                <label
+                                    name="Головной убор"
+                                    class="filter__item-content-label"
+                                >
+                                    <input
+                                        class="custom-checkbox"
+                                        type="checkbox"
+                                        name="Головной убор"
+                                    /><span class="checkbox"></span>
+                                    <span class="filter__item-content-text"
+                                        >Головной убор</span
+                                    >
+                                    <span class="filter__item-content-count"
+                                        >12</span
+                                    >
+                                </label>
+                                <label
+                                    name="Белье"
+                                    class="filter__item-content-label"
+                                >
+                                    <input
+                                        class="custom-checkbox"
+                                        type="checkbox"
+                                        name="Белье"
+                                    /><span class="checkbox"></span>
+                                    <span class="filter__item-content-text"
+                                        >Белье</span
+                                    >
+                                    <span class="filter__item-content-count"
+                                        >12</span
                                     >
                                 </label>
                             </div>
@@ -2166,6 +2322,23 @@
                 <div class="filter-section__view view">
                     <div class="view__header">
                         <div class="view__header-options">
+                            <button class="view__header-options-filter-show">
+                                <svg
+                                    width="21"
+                                    height="20"
+                                    viewBox="0 0 21 20"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M7.50117 12.2904L0.657951 1.53678C0.234335 0.871094 0.712518 0 1.50156 0H19.5004C20.2894 0 20.7676 0.871094 20.344 1.53678L13.5008 12.2904V16.9989C13.5008 17.3777 13.2868 17.7239 12.948 17.8933L8.94829 19.8931C8.28343 20.2256 7.50117 19.7421 7.50117 18.9988V12.2904ZM3.3233 2L9.34528 11.4631C9.44739 11.6236 9.50162 11.8098 9.50162 12V17.382L11.5016 16.382V12C11.5016 11.8098 11.5559 11.6236 11.658 11.4631L17.6799 2H3.3233Z"
+                                        fill="#264065"
+                                    />
+                                </svg>
+                                <span>Фильтр</span>
+                            </button>
                             <div class="view__header-options-filters">
                                 <span>Сортировать по</span>
                                 <select>
@@ -2258,7 +2431,13 @@
                         </div>
                     </div>
                     <div class="view__body">
-                        <div class="view__body-item">
+                        <div
+                            class="view__body-item"
+                            data-price="1000"
+                            data-type="Бандана"
+                            data-availability="В наличии"
+                            data-assort="ГКСириус ГКСпецобъединение Факел-спецодежда"
+                        >
                             <div class="main_offer-slide-slider swiper-slide">
                                 <div class="swiper swiper_product">
                                     <div class="main_offer-top-active">
@@ -2447,7 +2626,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="view__body-item">
+                        <div
+                            class="view__body-item"
+                            data-price="2000"
+                            data-type="Бандана"
+                            data-availability="В наличии много"
+                            data-assort="ГКСириус Факел-спецодежда"
+                        >
                             <div class="main_offer-slide-slider swiper-slide">
                                 <div class="swiper swiper_product">
                                     <div class="main_offer-top-active">
@@ -2636,7 +2821,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="view__body-item">
+                        <div
+                            class="view__body-item"
+                            data-availability="Ожидается"
+                            data-type="Бахилы"
+                            data-price="10000"
+                            data-assort="ГКСириус"
+                        >
                             <div class="main_offer-slide-slider swiper-slide">
                                 <div class="swiper swiper_product">
                                     <div class="main_offer-top-active">
@@ -2825,7 +3016,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="view__body-item">
+                        <div
+                            class="view__body-item"
+                            data-type="Блуза"
+                            data-price="5000"
+                        >
                             <div class="main_offer-slide-slider swiper-slide">
                                 <div class="swiper swiper_product">
                                     <div class="main_offer-top-active">
@@ -3014,7 +3209,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="view__body-item">
+                        <div class="view__body-item" data-type="Галстук">
                             <div class="main_offer-slide-slider swiper-slide">
                                 <div class="swiper swiper_product">
                                     <div class="main_offer-top-active">
@@ -5552,6 +5747,7 @@
         </footer>
 
         <!-- Footer end  -->
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script src="./js/script.js"></script>
@@ -5560,5 +5756,6 @@
         <script src="./js/filter-view.js"></script>
         <script src="./js/range-script.js"></script>
         <script src="./js/filter-grid-switcher.js"></script>
+        <script src="./js/filter.js"></script>
     </body>
 </html>
