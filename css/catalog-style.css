@@ -537,6 +537,10 @@ h6 {
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .filter-section {
   display: grid;
   grid-template-columns: 320px auto;
@@ -573,8 +577,8 @@ h6 {
   visibility: visible;
 }
 .filter-section .view .view__header-options-filter-show {
+  display: none;
   width: 110px;
-  display: flex;
   justify-content: space-between;
   padding: 9px 15px;
   font-size: 14px;
@@ -584,6 +588,11 @@ h6 {
 }
 .filter-section .view .view__header-options-filter-show:hover {
   opacity: 0.8;
+}
+@media (max-width: 930px) {
+  .filter-section .view .view__header-options-filter-show {
+    display: flex;
+  }
 }
 
 .view__header {
@@ -1050,6 +1059,65 @@ summary::-webkit-details-marker {
 }
 .filter__item-details--type .custom-checkbox:checked + span::after {
   display: none;
+}
+
+#content-pagination {
+  justify-content: center;
+  display: flex;
+  margin: 30px 0;
+}
+#content-pagination .pagination {
+  display: flex;
+  gap: 20px;
+}
+#content-pagination .next,
+#content-pagination .prev {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: all var(--transition);
+}
+#content-pagination .next svg,
+#content-pagination .prev svg {
+  margin-top: 11px;
+}
+#content-pagination .next path,
+#content-pagination .prev path {
+  transition: all var(--transition);
+}
+#content-pagination .next svg {
+  transform: rotate(180deg);
+}
+#content-pagination .next:hover,
+#content-pagination .prev:hover {
+  background-color: #252b42;
+  box-shadow: 0px 15px 23px 0px rgba(38, 64, 101, 0.25);
+}
+#content-pagination .next:hover path,
+#content-pagination .prev:hover path {
+  fill: var(--color-white);
+}
+
+.page-numbers {
+  display: flex;
+  gap: 10px;
+}
+.page-numbers .page-number {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  line-height: 19px;
+  font-family: "IBM Plex Sans", serif;
+}
+.page-numbers .page-number.active {
+  border-radius: 50%;
+  border: 2px solid #252b42;
 }
 
 /*# sourceMappingURL=catalog-style.css.map */
