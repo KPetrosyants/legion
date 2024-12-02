@@ -639,6 +639,7 @@ html {
   padding-right: 20px;
 }
 .view__header-options-filters select {
+  width: 186px;
   background: transparent;
   color: var(--title-color);
 }
@@ -733,8 +734,13 @@ html {
   line-height: 25px;
 }
 .filter__title span {
-  margin-bottom: 3px;
+  display: inline-flex;
+  align-items: center;
   margin-right: 10px;
+  margin-top: 2.5px;
+  width: 20px;
+  height: 20px;
+  background: url("/img/icon/btn.svg") no-repeat left;
 }
 .filter__item {
   border: 1px solid #e6e6e6;
@@ -884,6 +890,8 @@ html {
 }
 .filter #availability {
   width: 100%;
+  font-size: 18px;
+  font-weight: 500;
 }
 .filter #offers {
   border-radius: 5px;
@@ -959,6 +967,11 @@ html {
   flex: 1;
   text-align: left;
 }
+.filter summary {
+  font-weight: 500;
+  font-size: 18px;
+}
+
 .noUi-horizontal .noUi-tooltip {
   max-height: 22px;
   padding: 0 4px;
@@ -1000,6 +1013,7 @@ summary::-webkit-details-marker {
   overflow: hidden;
   position: absolute;
   z-index: 10;
+  cursor: pointer;
 }
 
 /* Стилизуем элемент, который будет выглядеть как чекбокс */
@@ -1012,9 +1026,14 @@ summary::-webkit-details-marker {
   margin-right: 10px; /* Отступ справа */
   cursor: pointer; /* Курсор при наведении */
   position: relative; /* Для более удобной стилизации при клике */
+  transform: border var(--transition);
 }
 
 /* Стиль для активного состояния (когда чекбокс выбран) */
+.custom-checkbox:hover + span {
+  border-color: #007bff; /* Цвет рамки при выборе */
+}
+
 .custom-checkbox:checked + span {
   background-color: #007bff; /* Фон при выборе */
   border-color: #007bff; /* Цвет рамки при выборе */
