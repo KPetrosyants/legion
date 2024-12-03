@@ -790,7 +790,7 @@ html {
   margin-top: 2.5px;
   width: 20px;
   height: 20px;
-  background: url("../../img/icon/btn.svg") no-repeat left;
+  background: url("../img/icon/btn.svg") no-repeat left;
 }
 .filter__item {
   border: 1px solid #e6e6e6;
@@ -1017,7 +1017,7 @@ html {
   position: absolute;
   top: 12px;
   right: 12px;
-  background: url("../../img/icon/arrow-down-filter.svg") no-repeat center;
+  background: url("../img/icon/arrow-down-filter.svg") no-repeat center;
 }
 .filter .filter__item.filter__item-details:has(details[open])::after {
   transform: rotate(180deg);
