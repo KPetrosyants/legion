@@ -1136,6 +1136,7 @@ select {
     align-items: center;
     justify-content: space-between;
     gap: 10px;
+    margin-bottom: 8px;
 }
 
 .main_offer-texts-art {
@@ -2104,6 +2105,9 @@ a.main_offer-texts-text {
 }
 
 /* mini blog end  */
+.footer {
+    font-family: "IBM Plex Sans", sans-serif;
+}
 
 /* footer start  */
 .footer__container-top {
@@ -2245,6 +2249,7 @@ a.main_offer-texts-text {
 
 .footer__adres-text.tel {
     font-size: 24px;
+    line-height: 32px;
     font-weight: 700;
 }
 

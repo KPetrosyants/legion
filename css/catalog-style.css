@@ -583,6 +583,7 @@ html {
   padding: 9px 15px;
   font-size: 14px;
   line-height: 19px;
+  color: rgb(102, 102, 102);
   transition: opacity var(--transition);
   opacity: 1;
 }
@@ -642,12 +643,17 @@ html {
   width: 186px;
   background: transparent;
   color: var(--title-color);
+  font-size: 14px;
+  line-height: 18px;
 }
 @media (max-width: 550px) {
   .view__header-options-filters {
     flex-direction: column;
     align-items: start;
-    gap: 2px;
+    gap: 0px;
+  }
+  .view__header-options-filters span {
+    padding-left: 4px;
   }
 }
 .view__header-slugs {
@@ -670,7 +676,7 @@ html {
 .view .view__header-options-filter-show .cross-mark {
   width: 20px;
   height: 20px;
-  background: url("/img/icon/cross-mark.svg") no-repeat center;
+  background: url("../../img/icon/cross-mark.svg") no-repeat center;
 }
 .view__header-view-options button {
   width: 32px;
@@ -694,6 +700,44 @@ html {
   gap: 20px;
   grid-template-columns: repeat(3, 1fr);
 }
+.view__body.active .main_offer-text-top {
+  flex-direction: column;
+  align-items: start;
+  gap: 5px;
+}
+.view__body.active .main_offer-texts-text {
+  font-size: 14px;
+  line-height: 19px;
+}
+.view__body.active .main_offer-texts-bottom {
+  justify-content: end;
+  gap: 10px;
+}
+.view__body.active .main_offer-texts-prices {
+  flex-direction: column-reverse;
+  align-items: end;
+  gap: 0;
+}
+@media (max-width: 550px) {
+  .view__body .main_offer-text-top {
+    flex-direction: column;
+    align-items: start;
+    gap: 5px;
+  }
+  .view__body .main_offer-texts-text {
+    font-size: 14px;
+    line-height: 19px;
+  }
+  .view__body .main_offer-texts-bottom {
+    justify-content: end;
+    gap: 10px;
+  }
+  .view__body .main_offer-texts-prices {
+    flex-direction: column-reverse;
+    align-items: end;
+    gap: 0;
+  }
+}
 @media (max-width: 1100px) {
   .view__body {
     grid-template-columns: repeat(2, 1fr);
@@ -703,6 +747,12 @@ html {
 .view__body-item {
   display: flex;
   justify-content: center;
+}
+.view__body-item[data-availability="Осталось мало"] .main_offer-texts-abo {
+  color: #f2722c;
+}
+.view__body-item[data-availability=Ожидается] .main_offer-texts-abo {
+  color: rgb(216, 0, 4);
 }
 
 .view__body.active {
@@ -724,7 +774,7 @@ html {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
-  max-height: 950px;
+  max-height: 980px;
   font-family: "IBM Plex Sans", serif;
 }
 .filter__title {
@@ -740,7 +790,7 @@ html {
   margin-top: 2.5px;
   width: 20px;
   height: 20px;
-  background: url("/img/icon/btn.svg") no-repeat left;
+  background: url("../../img/icon/btn.svg") no-repeat left;
 }
 .filter__item {
   border: 1px solid #e6e6e6;
@@ -783,17 +833,17 @@ html {
   top: 12px;
   left: 15px;
 }
-.filter__item-range {
+.filter__item-range.filter__item {
   padding: 15px;
   height: 150px;
   display: flex;
   flex-direction: column;
 }
-.filter__item-range p {
+.filter__item-range.filter__item p {
   font-size: 18px;
   line-height: 24px;
   color: #252b42;
-  margin-bottom: 10px;
+  margin-bottom: 37px;
 }
 .filter__range {
   flex: 1;
@@ -892,13 +942,15 @@ html {
   width: 100%;
   font-size: 18px;
   font-weight: 500;
+  -webkit-appearance: none; /* Safari и Chrome */
+  -moz-appearance: none; /* Firefox */
+  appearance: none;
+  position: relative;
 }
 .filter #offers {
-  border-radius: 5px;
-  width: 100%;
+  width: calc(100% - 10px);
   padding: 12px 10px;
-  background-color: #f9f9f9;
-  border: 1px solid rgb(230, 230, 230);
+  background-color: transparent;
   color: rgb(115, 115, 115);
   font-size: 14px;
   line-height: 18px;
@@ -911,15 +963,26 @@ html {
 }
 .filter .filter__item-offers {
   position: relative;
+  border-radius: 5px;
+  border: 1px solid rgb(230, 230, 230);
+  background-color: #f9f9f9;
 }
-.filter .filter__item-offers::after {
+.filter .filter__item:has(#availability) {
+  position: relative;
+}
+.filter .filter__item-offers::after,
+.filter .filter__item:has(#availability)::after {
   content: "";
   position: absolute;
   top: 13px;
   right: 15px;
   width: 20px;
   height: 20px;
-  background: url("/img/icon/arrow-down-filter.svg") no-repeat center;
+  background: url("../../img/icon/arrow-down-filter.svg") no-repeat center;
+}
+.filter .filter__item:has(#availability)::after {
+  top: 16px;
+  right: 12px;
 }
 .filter__item p {
   font-size: 18px;
@@ -954,7 +1017,7 @@ html {
   position: absolute;
   top: 12px;
   right: 12px;
-  background: url("/img/icon/arrow-down-filter.svg") no-repeat center;
+  background: url("../../img/icon/arrow-down-filter.svg") no-repeat center;
 }
 .filter .filter__item.filter__item-details:has(details[open])::after {
   transform: rotate(180deg);
@@ -1045,7 +1108,7 @@ summary::-webkit-details-marker {
   position: absolute;
   width: 25px; /* Ширина галочки */
   height: 25px; /* Высота галочки */
-  background: url("/img/icon/ok.svg") no-repeat center;
+  background: url("./img/icon/ok.svg") no-repeat center;
   left: -2px;
   top: -2px;
 }
@@ -1059,8 +1122,8 @@ summary::-webkit-details-marker {
   padding-bottom: 10px;
 }
 .filter__item-details--type details {
+  position: relative;
   max-height: 300px;
-  overflow-x: hidden;
 }
 .filter__item-details--type .custom-checkbox + span {
   display: inline-block;
@@ -1137,6 +1200,34 @@ summary::-webkit-details-marker {
 .page-numbers .page-number.active {
   border-radius: 50%;
   border: 2px solid #252b42;
+}
+
+.scrollable-container {
+  max-height: 255px;
+  padding-right: 5px;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.filter__item-content::-webkit-scrollbar {
+  width: 6px; /* Ширина полосы прокрутки */
+}
+
+.filter__item-content::-webkit-scrollbar-track {
+  background: rgb(249, 249, 249); /* Цвет фона полосы прокрутки */
+  border-radius: 20px; /* Скругление углов */
+}
+
+.filter__item-content::-webkit-scrollbar-thumb {
+  background: rgb(48, 127, 221); /* Цвет самого ползунка */
+  border-radius: 20px; /* Скругление ползунка */
+  transition: background 0.3s; /* Плавное изменение цвета */
+}
+
+@media (max-width: 550px) {
+  .view .view__header-options-filter-show {
+    height: 38px;
+  }
 }
 
 /*# sourceMappingURL=catalog-style.css.map */
