@@ -1171,7 +1171,7 @@ summary::-webkit-details-marker {
 }
 @media (max-width: 550px) {
   #content-pagination .pagination {
-    gap: 10px;
+    gap: 5px;
   }
 }
 #content-pagination .next,

@@ -75,11 +75,18 @@ function setupPagination(
                 pageNumbersContainer.appendChild(dots);
             }
             if (currentPage >= totalPages - 3) {
+                addPageLink(1);
+                addPageLink(2);
                 const dots = document.createElement("span");
                 dots.innerText = "...";
                 pageNumbersContainer.appendChild(dots);
-                addPageLink(currentPage);
-                addPageLink(currentPage + 1);
+                if (currentPage != totalPages) {
+                    addPageLink(currentPage);
+                    addPageLink(currentPage + 1);
+                } else {
+                    addPageLink(currentPage - 1);
+                    addPageLink(currentPage);
+                }
                 return;
             }
             // Показываем последние две страницы
