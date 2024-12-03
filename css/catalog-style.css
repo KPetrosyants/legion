@@ -637,7 +637,7 @@ html {
   display: flex;
   align-items: center;
   gap: 15px;
-  padding-right: 20px;
+  position: relative;
 }
 .view__header-options-filters select {
   width: 186px;
@@ -649,22 +649,24 @@ html {
   -moz-appearance: none; /* Firefox */
   appearance: none;
 }
+.view__header-options-filters::after {
+  content: "";
+  position: absolute;
+  bottom: 12px;
+  right: 5px;
+  height: 6px;
+  width: 10px;
+  background: url("../img/icon/filter-arrow-down.svg");
+}
 @media (max-width: 550px) {
   .view__header-options-filters {
-    position: relative;
     flex-direction: column;
     align-items: start;
     gap: 0px;
     padding: 0;
   }
   .view__header-options-filters::after {
-    content: "";
-    position: absolute;
     bottom: 6px;
-    right: 5px;
-    height: 6px;
-    width: 10px;
-    background: url("../img/icon/filter-arrow-down.svg");
   }
   .view__header-options-filters:has(select:focus):after {
     transform: rotate(180deg);
