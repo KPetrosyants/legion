@@ -33,7 +33,9 @@ slider.noUiSlider.on("update", function (values, handle) {
     tooltip.forEach((el) => {
         el.innerHTML = Math.floor(Number(el.innerHTML));
     });
-    filterPrice();
+    if (typeof filterPrice === "function") {
+        filterPrice();
+    }
 });
 
 minInput.addEventListener("change", function () {

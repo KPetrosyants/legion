@@ -103,6 +103,7 @@ function filterAssort() {
 
     viewItems.forEach((item) => {
         // Получаем значения data-assort текущего элемента
+        if (!item.getAttribute("data-assort").split(" ")) return;
         const assortWarehouses = item.getAttribute("data-assort").split(" ");
 
         // Проверяем, соответствует ли элемент хотя бы одному активному складу

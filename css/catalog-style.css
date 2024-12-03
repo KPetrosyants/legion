@@ -676,7 +676,7 @@ html {
 .view .view__header-options-filter-show .cross-mark {
   width: 20px;
   height: 20px;
-  background: url("../../img/icon/cross-mark.svg") no-repeat center;
+  background: url("../img/icon/cross-mark.svg") no-repeat center;
 }
 .view__header-view-options button {
   width: 32px;
@@ -978,7 +978,7 @@ html {
   right: 15px;
   width: 20px;
   height: 20px;
-  background: url("../../img/icon/arrow-down-filter.svg") no-repeat center;
+  background: url("../img/icon/arrow-down-filter.svg") no-repeat center;
 }
 .filter .filter__item:has(#availability)::after {
   top: 16px;
@@ -1108,7 +1108,7 @@ summary::-webkit-details-marker {
   position: absolute;
   width: 25px; /* Ширина галочки */
   height: 25px; /* Высота галочки */
-  background: url("./img/icon/ok.svg") no-repeat center;
+  background: url("../img/icon/ok.svg") no-repeat center;
   left: -2px;
   top: -2px;
 }
@@ -1146,7 +1146,7 @@ summary::-webkit-details-marker {
 #content-pagination {
   justify-content: center;
   display: flex;
-  margin: 30px 0;
+  margin: 15px 0;
 }
 #content-pagination .pagination {
   display: flex;
@@ -1187,7 +1187,7 @@ summary::-webkit-details-marker {
   display: flex;
   gap: 10px;
 }
-.page-numbers .page-number {
+.page-numbers .page-link {
   width: 50px;
   height: 50px;
   display: flex;
@@ -1197,9 +1197,18 @@ summary::-webkit-details-marker {
   line-height: 19px;
   font-family: "IBM Plex Sans", serif;
 }
-.page-numbers .page-number.active {
+.page-numbers .page-link.active {
   border-radius: 50%;
   border: 2px solid #252b42;
+}
+.page-numbers span {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  line-height: 38px;
+  padding-top: 1em;
 }
 
 .scrollable-container {
@@ -1227,6 +1236,32 @@ summary::-webkit-details-marker {
 @media (max-width: 550px) {
   .view .view__header-options-filter-show {
     height: 38px;
+  }
+}
+.wiew__button-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.wiew__button {
+  font-family: "IBM Plex Sans", serif;
+  line-height: 19px;
+  font-size: 18px;
+  padding: 20px 30px;
+  border: 1px solid rgb(38, 64, 101);
+  border-radius: 35px;
+  background-color: transparent;
+  transition: background-color var(--transition), color var(--transition);
+}
+.wiew__button:hover {
+  cursor: pointer;
+  background-color: rgb(38, 64, 101);
+  color: #fff;
+}
+@media (max-width: 550px) {
+  .wiew__button {
+    padding: 12px 30px;
   }
 }
 

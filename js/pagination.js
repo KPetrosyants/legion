@@ -22,11 +22,8 @@ function setupPagination(
         const end = start + itemsPerPage;
 
         productItems.forEach((item, index) => {
-            if (index >= start && index < end) {
-                item.style.display = "flex";
-            } else {
-                item.style.display = "none";
-            }
+            item.style.display =
+                index >= start && index < end ? "flex" : "none";
         });
 
         if (enablePagination) {
@@ -36,22 +33,62 @@ function setupPagination(
         }
     }
 
+    function addPageLink(pageNumber) {
+        const pageLink = document.createElement("a");
+        pageLink.innerText = pageNumber;
+        pageLink.classList.add("page-link");
+        pageLink.addEventListener("click", () => {
+            currentPage = pageNumber;
+            showPage(currentPage);
+        });
+
+        // Добавим классы для активной страницы
+        if (pageNumber === currentPage) {
+            pageLink.classList.add("active");
+        }
+
+        pageNumbersContainer.appendChild(pageLink);
+    }
+
     function updatePageNumbers() {
-        pageNumbersContainer.innerHTML = ""; // Очистить текущие номера страниц
-        for (let i = 1; i <= totalPages; i++) {
-            const pageLink = document.createElement("a");
-            pageLink.innerText = i;
-            pageLink.href = "#";
-            pageLink.classList.add("page-number");
-            if (i === currentPage) {
-                pageLink.classList.add("active"); // Добавить активный класс для текущей страницы
+        pageNumbersContainer.innerHTML = "";
+
+        // Если всего страниц 5 или меньше, показываем все
+        if (totalPages <= 5) {
+            for (let i = 1; i <= totalPages; i++) {
+                addPageLink(i);
             }
-            pageLink.addEventListener("click", (e) => {
-                e.preventDefault(); // Предотвратить переход по ссылке
-                currentPage = i; // Перейти на выбранную страницу
-                showPage(currentPage);
-            });
-            pageNumbersContainer.appendChild(pageLink);
+        } else {
+            // Показываем первую страницу
+            // addPageLink(1);
+
+            // Показываем текущую страницу и следующую, если необходимо
+            if (currentPage < totalPages && currentPage < totalPages - 3) {
+                addPageLink(currentPage);
+                addPageLink(currentPage + 1);
+            }
+
+            // Проверяем, нужно ли показывать многоточие
+            if (currentPage < totalPages - 3) {
+                const dots = document.createElement("span");
+                dots.innerText = "...";
+                pageNumbersContainer.appendChild(dots);
+            }
+            if (currentPage >= totalPages - 3) {
+                const dots = document.createElement("span");
+                dots.innerText = "...";
+                pageNumbersContainer.appendChild(dots);
+                addPageLink(currentPage);
+                addPageLink(currentPage + 1);
+                return;
+            }
+            // Показываем последние две страницы
+            if (totalPages > 1) {
+                addPageLink(totalPages - 1);
+            }
+            if (totalPages > 2) {
+                addPageLink(totalPages);
+            }
         }
     }
 
@@ -78,24 +115,18 @@ function setupPagination(
     showPage(currentPage);
 }
 
-if (window.innerWidth < 520) {
-    setupPagination(10, true, "content", "content-pagination");
-} else if (window.innerWidth < 744) {
-    setupPagination(15, true, "content", "content-pagination");
-} else if (window.innerWidth < 1280) {
-    setupPagination(15, true, "content", "content-pagination");
-} else {
-    setupPagination(15, true, "content", "content-pagination");
-}
+// Инициализация пагинации при загрузке страницы
+initializePagination();
 
-window.addEventListener("resize", () => {
+// Обновление пагинации при изменении размера
+function initializePagination() {
     if (window.innerWidth < 520) {
-        setupPagination(10, true, "content", "content-pagination");
+        setupPagination(6, true, "content", "content-pagination");
     } else if (window.innerWidth < 744) {
-        setupPagination(15, true, "content", "content-pagination");
+        setupPagination(9, true, "content", "content-pagination");
     } else if (window.innerWidth < 1280) {
-        setupPagination(15, true, "content", "content-pagination");
+        setupPagination(12, true, "content", "content-pagination");
     } else {
         setupPagination(15, true, "content", "content-pagination");
     }
-});
+}
