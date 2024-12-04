@@ -671,6 +671,7 @@ html {
     align-items: start;
     gap: 0px;
     padding: 0;
+    max-width: 186px;
   }
   .view__header-options-filters::after {
     bottom: 6px;
@@ -1106,6 +1107,8 @@ details {
   background: none; /* Убираем фон */
   outline: none; /* Убираем обводку */
   /* Можно добавить дополнительные свойства, если нужно */
+  position: relative;
+  z-index: 5;
 }
 
 /* Сброс стилей для элемента summary */
