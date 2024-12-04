@@ -104,6 +104,7 @@ h6 {
   --text-dark-color: ##333;
   --transition: 0.2s ease;
   --color-white: #fff;
+  --accent-color: rgba(48, 127, 221, 1);
 }
 
 .hero-catalog__title-container {
@@ -638,6 +639,11 @@ html {
   align-items: center;
   gap: 15px;
   position: relative;
+  width: 100%;
+  max-width: 307px;
+}
+.view__header-options-filters span {
+  flex: 0 0 107px;
 }
 .view__header-options-filters select {
   width: 186px;
@@ -653,7 +659,7 @@ html {
   content: "";
   position: absolute;
   bottom: 12px;
-  right: 5px;
+  right: 0px;
   height: 6px;
   width: 10px;
   background: url("../img/icon/filter-arrow-down.svg");
@@ -771,6 +777,20 @@ html {
   color: rgb(216, 0, 4);
 }
 
+.main_offer-slide-slider {
+  display: flex;
+  flex-direction: column;
+}
+
+.main_offer-texts {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.main_offer-texts .main_offer-texts-text {
+  flex: 1;
+}
+
 .view__body.active {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -795,6 +815,7 @@ html {
 }
 .filter__title {
   font-family: "DaysFont", serif;
+  text-transform: uppercase;
   color: var(--title-color);
   font-size: 24px;
   line-height: 25px;
@@ -814,6 +835,9 @@ html {
 }
 .filter__item:not(.filter__item-serche) {
   padding: 15px;
+}
+.filter__item:has(#availability) {
+  padding: 15px 0;
 }
 .filter__item.filter__item-details {
   padding: 0;
@@ -991,15 +1015,15 @@ html {
 .filter .filter__item:has(#availability)::after {
   content: "";
   position: absolute;
-  top: 13px;
-  right: 15px;
+  top: 10px;
+  right: 10px;
   width: 20px;
   height: 20px;
   background: url("../img/icon/arrow-down-filter.svg") no-repeat center;
 }
 .filter .filter__item:has(#availability)::after {
-  top: 16px;
-  right: 12px;
+  top: 20px;
+  right: 15px;
 }
 .filter__item p {
   font-size: 18px;
@@ -1286,6 +1310,49 @@ summary::-webkit-details-marker {
   .wiew__button {
     padding: 12px 30px;
   }
+}
+
+.ss-main {
+  background-color: transparent;
+  border: none;
+}
+
+.ss-main .ss-arrow {
+  display: none; /* Скрыть стандартную стрелку */
+}
+
+.filter .filter__item-offers:has(.ss-open-below)::after,
+.filter .filter__item:has(.ss-open-below)::after,
+.view__header-options-filters:has(.ss-open-below)::after {
+  transform: rotate(180deg);
+}
+
+.ss-main:focus {
+  box-shadow: none;
+}
+
+.filter__item-offers .ss-main {
+  padding: 12px 40px 12px 10px;
+  background: rgb(249, 249, 249);
+}
+
+.ss-content .ss-list .ss-option {
+  padding: 10px;
+}
+
+.ss-content .ss-list .ss-option.ss-highlighted,
+.ss-content .ss-list .ss-option:not(.ss-disabled).ss-selected {
+  color: var(--ss-bg-color);
+  background-color: var(--accent-color);
+}
+
+.filter__item:has(#availability) .ss-main {
+  border: none;
+  font-size: 18px;
+  line-height: 24px;
+  font-family: "IBM Plex Sans", serif;
+  font-weight: 500;
+  padding-left: 15px;
 }
 
 /*# sourceMappingURL=catalog-style.css.map */
