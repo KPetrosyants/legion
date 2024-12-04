@@ -1329,6 +1329,8 @@ summary::-webkit-details-marker {
 .ss-main {
   background-color: transparent;
   border: none;
+  position: relative;
+  z-index: 5;
 }
 
 .ss-main .ss-arrow {
@@ -1345,9 +1347,12 @@ summary::-webkit-details-marker {
   box-shadow: none;
 }
 
+.filter__item-offers:has(.ss-main) {
+  background: rgb(249, 249, 249);
+}
+
 .filter__item-offers .ss-main {
   padding: 12px 40px 12px 10px;
-  background: rgb(249, 249, 249);
 }
 
 .ss-content .ss-list .ss-option {
